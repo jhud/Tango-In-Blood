@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+PROJECT_DIR = os.path.dirname(__file__)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -65,8 +66,8 @@ DATABASES = {
 }
 
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(BASE_DIR), 'tango-in-blood/tango_in_blood_app/templates/tango_in_blood'),
-    '/tango_in_blood_app/templates/tango_in_blood',
+    os.path.join(PROJECT_DIR, 'tango_in_blood_app/templates/tango_in_blood'),
+    os.path.join(PROJECT_DIR, 'templates'),
 )
 
 
