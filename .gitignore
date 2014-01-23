@@ -4,3 +4,6 @@
 /share
 
 *.pyc
+*.log
+*.pot
+local_settings.py
