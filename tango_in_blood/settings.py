@@ -66,6 +66,7 @@ DATABASES = {
 
 TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(BASE_DIR), 'tango-in-blood/tango_in_blood_app/templates/tango_in_blood'),
+    '/tango_in_blood_app/templates/tango_in_blood',
 )
 
 
