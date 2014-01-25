@@ -1,7 +1,13 @@
+{% extends "base.html" %}
+
+{% block contents %}
+
 HELLO THERE {{team_name}}
 
-<form action="" method="post">{% csrf_token %}
+<form action="/checkpassword/" method="post">{% csrf_token %}
     <div class="form-group">
         <label for="id_password">Enter your password:</label>
-        <input class="form-control" type="password" id="id_password" name="id_password" value="">
+        <input class="form-control" id="id_password" name="id_password" value="">
 </form>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block contents %}
+
+{% block basicinfo %}
+<div id="sidebar">
+	{{user.user.username}}<br>
+<img src={% if user.get_profile.avatar %}"{{user_profile.avatar}}" {% else %} "http://b.vimeocdn.com/ps/346/445/3464459_300.jpg" {% endif %}>
+</div>
+{% endblock %}
+
+{% endblock %}

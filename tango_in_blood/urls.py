@@ -14,5 +14,9 @@ urlpatterns = patterns('',
     
     url(r'^team/(?P<team_name>\w+)/$', TeamView.as_view()),
     
+    url(r'^accounts/profile/$', ProfileView.as_view()),
+    
+    (r'^accounts/', include('allauth.urls')),
+     
     url(r'^$', TemplateView.as_view(template_name='index.html')),
 )

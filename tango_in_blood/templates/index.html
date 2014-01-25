@@ -1,3 +1,12 @@
-<h1>HELLO! TANGO IN BLOOD</h1>
-<a href="/team/vampires/">vampires</a>
-<a href="/team/werewolves/">werewolves</a>
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block contents %}
+<img src="{% static 'logo.png' %}">
+<br>
+<h1>TANGO IN BLOOD</h1>
+<br>
+<a href="/team/vampires/"><img src="{% static 'vampires.jpg' %}"></a>
+<a href="/team/werewolves/"><img src="{% static 'werewolves.jpg' %}"></a>
+{% endblock %}
