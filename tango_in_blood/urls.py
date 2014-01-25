@@ -16,7 +16,9 @@ urlpatterns = patterns('',
     
     url(r'^accounts/profile/$', ProfileView.as_view()),
     
-    (r'^accounts/', include('allauth.urls')),
+    #url(r'^accounts/', include('allauth.urls')),
+   
+    url(r'^checkpassword/$', 'tango_in_blood_app.views.checkpassword'),   
      
     url(r'^$', TemplateView.as_view(template_name='index.html')),
 )

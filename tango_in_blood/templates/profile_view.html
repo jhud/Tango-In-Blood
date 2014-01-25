@@ -3,10 +3,20 @@
 {% block contents %}
 
 {% block basicinfo %}
-<div id="sidebar">
-	{{user.user.username}}<br>
+	Greetings, {{user.username}}<br>
 <img src={% if user.get_profile.avatar %}"{{user_profile.avatar}}" {% else %} "http://b.vimeocdn.com/ps/346/445/3464459_300.jpg" {% endif %}>
-</div>
+<br>
+You bit:
+<ul>
+	{% for victim in victims %}
+		<li>
+		{{victim}}
+	</li>
+	{% endfor %}
+</ul>
+
+Keep chomping those poor girls/guys!
+
 {% endblock %}
 
 {% endblock %}
