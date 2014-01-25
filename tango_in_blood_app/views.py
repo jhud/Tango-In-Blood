@@ -35,6 +35,6 @@ def checkpassword(request):
         new_user = authenticate(username=new_username,
                                     password='vampire')
         login(request, new_user)
-        return HttpResponse("You are in!") 
+        return HttpResponse("You are in ;)<p>You will probably want to <a href='/accounts/profile/'>check your new profile.</a>") 
         
     
