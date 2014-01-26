@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 
 from tango_in_blood_app.models import Profile, User
 
@@ -17,7 +17,7 @@ class ProfileView(TemplateView):
     @method_decorator(login_required)
     def get(self, request):        
         user_profile = request.user.get_profile()
-        victims = User.objects.filter(profile_converted_bys=request.user)
+        victims = Profile.objects.filter(converted_by=request.user)
         return render(request, "profile_view.html", {'user_profile': user_profile, 'victims': victims})
         
 def checkpassword(request):
@@ -31,10 +31,17 @@ def checkpassword(request):
         return HttpResponse("That username is taken!") 
     else:
         user = User.objects.create_user(new_username, password="vampire")
-        user.converted_by = biter
+        user_profile = user.get_profile()
+        user_profile.converted_by = biter
+        user_profile.save()
         new_user = authenticate(username=new_username,
                                     password='vampire')
         login(request, new_user)
-        return HttpResponse("You are in ;)<p>You will probably want to <a href='/accounts/profile/'>check your new profile.</a>") 
-        
+        return HttpResponse("You are in, after being bitten by " + biter.username +" ;)<p>You will probably want to <a href='/accounts/profile/'>check your new profile.</a>") 
+
+def user_logout(request):
+    if request.user.is_authenticated():
+        logout(request)
+        return HttpResponse("You are logged out.")
+    return HttpResponse("You are already logged out.")
     

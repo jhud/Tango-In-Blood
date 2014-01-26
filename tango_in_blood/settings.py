@@ -38,10 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'south',
     'tango_in_blood_app',
-    
-    'django.contrib.sites',
         
     'allauth',
     'allauth.account',

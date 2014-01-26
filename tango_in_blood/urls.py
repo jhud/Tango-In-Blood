@@ -15,6 +15,8 @@ urlpatterns = patterns('',
     url(r'^team/(?P<team_name>\w+)/$', TeamView.as_view()),
     
     url(r'^accounts/profile/$', ProfileView.as_view()),
+
+    url(r'^logout/$', 'tango_in_blood_app.views.user_logout'),
     
     #url(r'^accounts/', include('allauth.urls')),
    
