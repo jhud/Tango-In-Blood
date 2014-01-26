@@ -18,7 +18,7 @@ urlpatterns = patterns('',
 
     url(r'^logout/$', 'tango_in_blood_app.views.user_logout'),
     
-    #url(r'^accounts/', include('allauth.urls')),
+    url(r'^accounts/', include('allauth.urls')),
    
     url(r'^checkpassword/$', 'tango_in_blood_app.views.checkpassword'),   
      
