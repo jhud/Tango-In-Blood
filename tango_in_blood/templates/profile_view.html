@@ -6,6 +6,8 @@
 	Greetings, {{user.username}}<br>
 <img src={% if user.get_profile.avatar %}"{{user_profile.avatar}}" {% else %} "http://b.vimeocdn.com/ps/346/445/3464459_300.jpg" {% endif %}>
 <br>
+You were bitten by {{user_profile.converted_by.username}}
+<br>
 You bit {{victims.count}} victims:
 <ul>
 	{% for victim in victims %}
