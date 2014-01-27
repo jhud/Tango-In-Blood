@@ -20,7 +20,9 @@ urlpatterns = patterns('',
 
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'admin/login.html'}),
     
-    #url(r'^accounts/', include('allauth.urls')),
+    url(r'^accounts/', include('allauth.urls')),
+   
+    url(r'^forum/', include('pybb.urls', namespace='pybb')),
    
     url(r'^checkpassword/$', 'tango_in_blood_app.views.checkpassword'),   
      

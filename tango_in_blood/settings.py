@@ -45,6 +45,9 @@ INSTALLED_APPS = (
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+
+    'sorl.thumbnail',
+    'pybb',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -54,6 +57,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    'pybb.middleware.PybbMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -66,6 +71,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     # allauth specific context processors
     "allauth.account.context_processors.account",
     "allauth.socialaccount.context_processors.socialaccount",
+    
+    'pybb.context_processors.processor',
 )
 
 AUTHENTICATION_BACKENDS = (
