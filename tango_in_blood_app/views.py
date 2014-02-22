@@ -30,7 +30,7 @@ def checkpassword(request):
     elif User.objects.filter(username__exact=new_username).exists():
         return HttpResponse("That username is taken!") 
     else:
-        user = User.objects.create_user(new_username, password="vampire")
+        user = User.objects.create_user(new_username, password="vampire", email=request.POST['id_email'])
         user_profile = user.get_profile()
         user_profile.converted_by = biter
         user_profile.save()

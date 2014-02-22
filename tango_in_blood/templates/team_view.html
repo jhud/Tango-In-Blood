@@ -6,10 +6,12 @@ HELLO THERE {{team_name}}
 
 <form action="/checkpassword/" method="post">{% csrf_token %}
     <div class="form-group">
-        <label for="id_password">Enter your password:</label>
-        <input class="form-control" id="id_password" name="id_password" value="">
-		<label for="id_username">Enter your alias:</label>
-		<input class="form-control" id="id_username" name="id_username" value="">
+        <label for="id_password">Enter the password you got when you were bitten:</label>
+        <input class="form-control" id="id_password" name="id_password" value=""><br>
+		<label for="id_username">How do you want to be called? All small letters, one word:</label>
+		<input class="form-control" id="id_username" name="id_username" value=""><br>
+		<label for="id_email">What is your email address?</label>
+		<input class="form-control" id="id_email" name="id_email" value=""><br>
 		<input type="submit" value="Submit">
 </form>
 
