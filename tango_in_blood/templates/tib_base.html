@@ -2,9 +2,12 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
 
-<a href="/forum/">Forum</a>
+<div id="titleBar">
+<a href="/">Home</a> |
+<a href="/forum/">Forum</a> |
+<a href="mailto:abenteuerritter@gmail.com">Email us with problems or suggestions</a> |
 <a href="/logout/">Logout</a>
-<a href="mailto:abenteuerritter@gmail.com">Email us with problems or suggestions.</a>
+</div>
 <p>
 
 {% block contents %}

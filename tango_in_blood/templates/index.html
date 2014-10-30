@@ -3,11 +3,14 @@
 
 
 {% block contents %}
-<a href="/accounts/profile/">My Profile (MEMBERS ONLY)</a><br>
 <img src="{% static 'logo.png' %}">
 <br>
 <h1>TANGO IN BLOOD</h1>
 <br>
+<h2>New Users</h2>
 <a href="/team/vampires/"><img src="{% static 'vampires.jpg' %}"></a>
 <a href="/team/werewolves/"><img src="{% static 'werewolves.jpg' %}"></a>
+<h2>Existing members</h2>
+<a href="/accounts/profile/">Enter my profile (MEMBERS ONLY)</a><br>
+<p>
 {% endblock %}

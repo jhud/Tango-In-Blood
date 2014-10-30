@@ -7,3 +7,27 @@ body {
 h1 {
 	font-size:64px;
 }
+
+#titleBar {
+	color: white;
+}
+
+/* unvisited link */
+#titleBar a:link {
+    color: #FFFFFF;
+}
+
+/* visited link */
+#titleBar a:visited {
+    color: #FFFFFF;
+}
+
+/* mouse over link */
+#titleBar a:hover {
+    color: #FF4444;
+}
+
+/* selected link */
+#titleBar a:active {
+    color: #DD1111;
+}
