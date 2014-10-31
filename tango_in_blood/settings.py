@@ -10,6 +10,10 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
+# for passwords etc.
+import private_settings
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 PROJECT_DIR = os.path.dirname(__file__)
@@ -17,8 +21,30 @@ PROJECT_DIR = os.path.dirname(__file__)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '4$_fh4t!=gv40i8^46%s!2ih7)do^33q4t_p)w5twf@-^$t-&u'
+# from https://github.com/sebastibe/django-rest-skeleton/blob/master/manage.py
+"""
+Two things are wrong with Django's default `SECRET_KEY` system:
+1. It is not random but pseudo-random
+2. It saves and displays the SECRET_KEY in `settings.py`
+This snippet
+1. uses `SystemRandom()` instead to generate a random key
+2. saves the SECRET_KEY file in the `envdir` directory
+The result is a random and safely hidden `SECRET_KEY`.
+"""
+PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
+SECRET_FILE = os.path.join(PROJECT_PATH, 'envdir', 'SECRET_KEY')
+try:
+    SECRET_KEY = open(SECRET_FILE).read().strip()
+except IOError:
+    try:
+        import random
+        SECRET_KEY = ''.join([random.SystemRandom().choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)') for i in range(50)])
+        secret = file(SECRET_FILE, 'w')
+        secret.write(SECRET_KEY)
+        secret.close()
+    except IOError:
+        Exception('Please create a %s file with random characters \
+        to generate your secret key!' % SECRET_FILE)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -150,13 +176,3 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-
-EMAIL_HOST = 'smtp.gmail.com'
-
-EMAIL_HOST_USER = 'psytrakked'
-
-EMAIL_HOST_PASSWORD = 'xprtgzrbtwpkqwlr'
-
-EMAIL_PORT = 587
-
-EMAIL_USE_TLS = True
