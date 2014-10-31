@@ -1,3 +1,5 @@
+import os
+
 EMAIL_HOST = os.environ['EMAIL_HOST'] 
 
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
