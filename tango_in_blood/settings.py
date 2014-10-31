@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-# for passwords etc.
-import private_settings
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -175,4 +173,15 @@ AUTH_PROFILE_MODULE = "tango_in_blood_app.Profile"
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+EMAIL_HOST = os.environ['EMAIL_HOST'] 
+
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
+
 
